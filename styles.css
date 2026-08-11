@@ -1,3 +1,37 @@
+body{
+    background-color:greenyellow;
+}
+
+#game{
+    text-align: center;
+    justify-content: center;
+}
+
+#score{
+    font-size: 20px;
+    margin: 15px;
+}
+
 #gameCanvas{
-    border: 2px solid black
+    border: 2px solid black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#gameOver{
+    display: none;
+    text-align: center;
+}
+
+.btn{
+    background-color: rgb(14, 131, 105);
+    color: white;
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

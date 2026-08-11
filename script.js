@@ -14,8 +14,12 @@ let snake = [{x: 150, y: 150},
              {x: 120, y: 150}, 
              {x: 110, y: 150}];
 
-main(); //Start the game
-createFood();
+const playButton = document.getElementById("playButton");
+playButton.addEventListener("click", function(){
+    playButton.style.display = "none";
+    main();
+    createFood();
+});
 document.addEventListener("keydown", changeDirection);
 
 function drawSnakePart(snakePart){
@@ -43,13 +47,6 @@ function moveSnake(){
     else{
         snake.pop(); //Remove last element, the tail
     }
-}
-
-function clearCanvas(){
-    ctx.fillStyle = 'white';
-    ctx.strokeStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeRect(0, 0, canvas.width, canvas.height);
 }
 
 function changeDirection(event){
@@ -85,8 +82,15 @@ function changeDirection(event){
     }
 }
 
+function clearCanvas(){
+    ctx.fillStyle = 'white';
+    ctx.strokeStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
+}
+
 function random(min, max){
-    return Math.round(Math.random() * (max - min) + min / 10) * 10;
+    return Math.floor(Math.random() * ((max - min) / 10)) * 10 + min;
 }
 
 function createFood(){
@@ -94,7 +98,7 @@ function createFood(){
     foodY = random(0, canvas.height - 10);
 
     snake.forEach(function isFoodOnSnake(part){
-        const foodIsOnSnake = part.x == foodX && part.y == foodY;
+        const foodIsOnSnake = part.x === foodX && part.y === foodY;
         if(foodIsOnSnake){
             createFood();
         }
@@ -124,11 +128,15 @@ function gameEnd(){
 }
 
 function main(){
-    if(gameEnd()) return;
+    if(gameEnd()){
+        document.getElementById("gameOver").style.display = "block";
+        return
+    };
 
     //Move snake with a timer
     setTimeout(function onTick() {
         isChangingDirection = false;
+
         clearCanvas();
         drawFood();
         moveSnake();
