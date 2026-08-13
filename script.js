@@ -1,24 +1,15 @@
-<<<<<<< HEAD
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-
-=======
 //Main Canvas
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 //Initial Variables
->>>>>>> c5f59b9 (Add sound effects)
 let dx = 10;
 let dy = 0;
 let foodX, foodY;
 let score = 0;
 let isChangingDirection = false;
-<<<<<<< HEAD
-=======
 const pickUpSound = new Audio('sound/pickUpFood.wav');
 const deathSound = new Audio('sound/death.wav');
->>>>>>> c5f59b9 (Add sound effects)
 
 //Array of coordinates for the initial snake parts
 let snake = [{x: 150, y: 150}, 
@@ -27,25 +18,17 @@ let snake = [{x: 150, y: 150},
              {x: 120, y: 150}, 
              {x: 110, y: 150}];
 
-<<<<<<< HEAD
-=======
 //Start game by pressing the play button
->>>>>>> c5f59b9 (Add sound effects)
 const playButton = document.getElementById("playButton");
 playButton.addEventListener("click", function(){
     playButton.style.display = "none";
     main();
     createFood();
 });
-<<<<<<< HEAD
-document.addEventListener("keydown", changeDirection);
-
-=======
 //Check for keypresses
 document.addEventListener("keydown", changeDirection);
 
 //Draws each part of the snake
->>>>>>> c5f59b9 (Add sound effects)
 function drawSnakePart(snakePart){
     ctx.fillStyle = 'lightgreen';
     ctx.strokeStyle = 'darkgreen';
@@ -53,10 +36,7 @@ function drawSnakePart(snakePart){
     ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
 }
 
-<<<<<<< HEAD
-=======
 //Draws full snake
->>>>>>> c5f59b9 (Add sound effects)
 function drawSnake(){
     snake.forEach(drawSnakePart);
 }
@@ -68,10 +48,7 @@ function moveSnake(){
 
     const ateFood = snake[0].x === foodX && snake[0].y === foodY;
     if(ateFood){
-<<<<<<< HEAD
-=======
         pickUpSound.play();
->>>>>>> c5f59b9 (Add sound effects)
         score += 10;
         document.getElementById("score").innerHTML = "Score: " + score;
         createFood();
@@ -82,10 +59,7 @@ function moveSnake(){
 }
 
 function changeDirection(event){
-<<<<<<< HEAD
-=======
     //Key values for every specific arrow key
->>>>>>> c5f59b9 (Add sound effects)
     const LEFT_KEY = 37;
     const RIGHT_KEY = 39;
     const UP_KEY = 38;
@@ -163,15 +137,10 @@ function gameEnd(){
     return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
 }
 
-<<<<<<< HEAD
-function main(){
-    if(gameEnd()){
-=======
 //Main function that will run the game by calling other functions
 function main(){
     if(gameEnd()){
         deathSound.play();
->>>>>>> c5f59b9 (Add sound effects)
         document.getElementById("gameOver").style.display = "block";
         return
     };
