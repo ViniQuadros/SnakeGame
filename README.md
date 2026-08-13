@@ -32,5 +32,5 @@ If possible, use Live Server on VS Code to run the application.
 
 ## Showcase
 
-[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/YZ7KvF8Isq4)
+[![Watch the demo](https://img.youtube.com/vi/YZ7KvF8Isq4/0.jpg)](https://youtu.be/YZ7KvF8Isq4)
 
